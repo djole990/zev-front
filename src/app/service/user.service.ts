@@ -16,4 +16,8 @@ export class UserService {
   deleteUser(id: number){
     return this.http.delete(`http://localhost:8080/zev/users/${id}`);
   }
+
+  public createUser(user: User) {
+    return this.http.post<User>("http://localhost:8080/zev/users/", user);
+  }
 }
