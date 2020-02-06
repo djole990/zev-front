@@ -1,19 +1,24 @@
-<h2 class="text-center">Add User</h2>
-<form>
-  <div class="form-group">
-    <label for="firstName">First Name:</label>
-    <input type="name" [(ngModel)]="user.firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
-  </div>
+<h2 class="text-center">{{ title }}</h2>
 
-  <div class="form-group">
-    <label for="lastName">Last Name:</label>
-    <input [(ngModel)]="user.lastName" placeholder="Last Name" name="lastName" class="form-control" id="lastName">
-  </div>
+<form [formGroup]="form">
 
-  <div class="form-group">
-    <label for="username">Username:</label>
-    <input [(ngModel)]="user.username" placeholder="Username" name="username" class="form-control" id="username">
-  </div>
+    <input type="hidden" formControlName="id" />
 
-  <button class="btn btn-success" (click)="saveUser()">Create</button>
+    <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input class="form-control" formControlName="firstName" placeholder="First Name" id="firstName" />
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">First Name:</label>
+        <input class="form-control" formControlName="lastName" placeholder="Last Name" id="lastName" />
+    </div>
+
+    <div class="form-group">
+        <label for="username">First Name:</label>
+        <input class="form-control" formControlName="username" placeholder="Username" id="username" />
+    </div>
+
+    <button class="btn btn-success" (click)="saveUser()">Save</button>
+
 </form>

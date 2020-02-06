@@ -9,6 +9,10 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  getUser(id: number){
+    return this.http.get<User>(`http://localhost:8080/zev/users/${id}`)
+  }
+
   getUsers(){
     return this.http.get<User[]>('http://localhost:8080/zev/users/');
   }
@@ -17,7 +21,11 @@ export class UserService {
     return this.http.delete(`http://localhost:8080/zev/users/${id}`);
   }
 
-  public createUser(user: User) {
-    return this.http.post<User>("http://localhost:8080/zev/users/", user);
+  createUser(user: User){
+    return this.http.post<User>('http://localhost:8080/zev/users/', user);
+  }
+
+  updateUser(user: User){
+    return this.http.put<User>(`http://localhost:8080/zev/users/${user.id}`, user);
   }
 }
